@@ -130,31 +130,299 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: const <Widget>[
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-              Text("Awawaw"),
-            ]
+          child: Padding(
+            padding: const EdgeInsets.only(right: 12.0, left: 12.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.only(top: 15),
+                      child: const Text(
+                        "Buying Power",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w500,
+                        )
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.amber,
+                        width: 100,
+                      )
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 15),
+                      padding: const EdgeInsets.all(5.0),
+                      color: const Color.fromARGB(255, 232, 232, 232),
+                      child: const Text(
+                        "Deposit",
+                        style: TextStyle(
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w500,
+                        )
+                      ),
+                    ),
+                  ]
+                ),
+                const SizedBox(height: 10.0),
+
+                //  Reguler & Day Trading
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 210, 210, 210),
+                            width: 1, 
+                          ),
+                          borderRadius: const BorderRadius.all(Radius.circular(5)),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const <Widget>[
+                            Padding(
+                              padding: EdgeInsets.only(left: 5.0, top: 5.0),
+                              child: Text(
+                                "Reguler",
+                                style: TextStyle(
+                                  fontSize: 10.0,
+                                  fontWeight: FontWeight.w500,
+                                )
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 5.0, top: 3.0),
+                              child: Text(
+                                "Rp1.000.000",
+                                style: TextStyle(
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w600,
+                                )
+                              ),
+                            ),
+                          ]
+                        )
+                      ),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 210, 210, 210),
+                            width: 1, 
+                          ),
+                          borderRadius: const BorderRadius.all(Radius.circular(5)),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const <Widget>[
+                            Padding(
+                              padding: EdgeInsets.only(left: 5.0, top: 5.0),
+                              child: Text(
+                                "Day Trading",
+                                style: TextStyle(
+                                  fontSize: 10.0,
+                                  fontWeight: FontWeight.w500,
+                                )
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 5.0, top: 3.0),
+                              child: Text(
+                                "Rp5.000",
+                                style: TextStyle(
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w600,
+                                )
+                              ),
+                            ),
+                          ]
+                        )
+                      ),
+                    ),
+                  ]
+                ),
+                const SizedBox(height: 10.0),
+
+                // Carousel Ads
+                CarouselSlider(
+                  items: images,
+                  options: CarouselOptions(
+                    height: 70,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                  )
+                ),
+                const SizedBox(height: 10.0),
+
+                // Search Bar
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 242, 242, 242)
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(5, 5, 0, 5),
+                    child: Text(
+                      "Search Bar"
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10.0),
+                
+            //     Saham & Reksadana Card
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          ButtonClicked.categoryClicked = !ButtonClicked.categoryClicked;
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(10.0),
+                        margin: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(width: 1.5, color: ButtonClicked.categoryClicked == true ? Colors.transparent : const Color.fromARGB(255, 40, 104, 255)),
+                          ),
+                        ),
+                        child: Text(
+                          "Saham",
+                          style: TextStyle(
+                            color: ButtonClicked.categoryClicked == true ? Colors.black : const Color.fromARGB(255, 40, 104, 255),
+                            fontWeight: FontWeight.w500,
+                          )
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          ButtonClicked.categoryClicked = !ButtonClicked.categoryClicked;
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        margin: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(width: 1.5, color: ButtonClicked.categoryClicked == false ? Colors.transparent : const Color.fromARGB(255, 40, 104, 255)),
+                          ),
+                        ),
+                        child: Text(
+                          "Reksa Dana",
+                          style: TextStyle(
+                            color: ButtonClicked.categoryClicked == false ? Colors.black : const Color.fromARGB(255, 40, 104, 255),
+                            fontWeight: FontWeight.w500,
+                          )
+                        ),
+                      ),
+                    )
+                  ]
+                ),
+                const SizedBox(height: 10.0),
+                // Title WatchList & Kode Sebelum Table
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    const CircleAvatar(
+                      radius: 13.0,
+                      backgroundColor: Color.fromRGBO(249, 248, 255, 1),
+                      child: Center(
+                        child: Icon(
+                          Icons.add
+                        )
+                      )
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 15.0),
+                      padding: const EdgeInsets.all(5.0), 
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.blue)
+                      ),
+                      child: const Text(
+                        "Watchlist Saya",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13.0,
+                          color: Color.fromARGB(255, 40, 104, 255)
+                        )
+                      )
+                    )
+                  ],
+                ),
+                const SizedBox(height: 10.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    const Text(
+                      "Kode",
+                      style: TextStyle(
+                        fontSize: 11.0,
+                        fontWeight: FontWeight.w400,
+                      )
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.amber,
+                        width: 100,
+                      )
+                    ),
+                    const Text(
+                      "Price & Changes",
+                      style: TextStyle(
+                        fontSize: 11.0,
+                        fontWeight: FontWeight.w400,
+                      )
+                    ),
+                  ]
+                ),
+                const SizedBox(height: 2.0),
+                const Divider(thickness: 1.0),
+                const SizedBox(height: 2.0),//      
+
+                // ListView Tabel Saham
+                SizedBox(
+                  height: 400.0,
+                  child: Expanded(
+                    child: ListView.separated(
+                      scrollDirection: Axis.vertical,
+                  
+                      padding: const EdgeInsets.all(8.0),
+                      itemCount: stockList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          height: 50,
+                          color: Colors.transparent,
+                          child: Text(
+                            stockList[index]
+                          )
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) => const Divider(),
+                    ),
+                  ),
+                ), 
+              ]
+            ),
           ),
         )
       ),
